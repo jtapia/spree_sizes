@@ -1,0 +1,7 @@
+<!-- insert_bottom "[data-hook='admin_tabs']" -->
+
+<% if can? :admin, Spree::Size %>
+  <ul class="nav nav-sidebar">
+    <%= tab *Spree::BackendConfiguration::SIZE_TABS, url: spree.admin_sizes_path, icon: 'th' %>
+  </ul>
+<% end %>

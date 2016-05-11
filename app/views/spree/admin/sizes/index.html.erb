@@ -1,0 +1,62 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Size) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_size), new_object_url, { class: 'btn-success', icon: 'add', id: 'admin_new_size' } %>
+<% end if can?(:create, Spree::Size) %>
+
+<% content_for :table_filter do %>
+  <div data-hook='admin_size_sidebar'>
+
+    <%= search_form_for [:admin, @search] do |f| %>
+      <% locals = { f: f } %>
+      <div data-hook='admin_size_index_search' class='row'>
+        <div class='col-md-6'>
+          <div class='form-group'>
+            <%= f.label :name_cont, Spree.t(:name) %>
+            <%= f.text_field :name_cont, size: 15, class: 'form-control js-quick-search-target' %>
+          </div>
+        </div>
+      </div>
+      <div data-hook='admin_size_index_search_buttons' class='form-actions'>
+        <%= button Spree.t(:search), 'search' %>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>
+
+<% if @collection.any? %>
+  <table class='table' id='listing_sizes'>
+    <thead>
+      <tr data-hook='admin_size_index_headers'>
+        <th>
+          <%= sort_link @search, :name, Spree.t(:name), { default_order: 'desc' }, { title: 'admin_size_listing_name_title' } %>
+        </th>
+        <th>
+          <%= Spree.t(:description) %>
+        </th>
+        <th class='actions' data-hook='admin_size_index_header_actions'></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @collection.each do |size| %>
+        <tr id='<%= spree_dom_id size %>' data-hook='admin_size_index_rows' class='<%= cycle('odd', 'even') %>'>
+          <td class='name'><%= size.name %></td>
+          <td class='description'><%= size.description %></td>
+          <td class='actions actions-2 text-right' data-hook='admin_size_index_row_actions'>
+            <%= link_to_edit size, no_text: true, class: 'edit' if can?(:edit, size) %>
+            <%= link_to_delete size, no_text: true if can?(:delete, size) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-info no-objects-found'>
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Size)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url %>!
+  </div>
+<% end %>
