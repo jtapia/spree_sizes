@@ -16,5 +16,6 @@ module SpreeSizes
     end
 
     config.to_prepare &method(:activate).to_proc
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

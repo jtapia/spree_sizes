@@ -1,7 +1,7 @@
-SpreeSizes
+Spree Sizes
 ==========
 
-Introduction goes here.
+Module to handle simple size information from admin
 
 Installation
 ------------
