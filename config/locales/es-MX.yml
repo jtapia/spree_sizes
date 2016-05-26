@@ -3,7 +3,16 @@ es-MX:
     size: Talla
     sizes: Tallas
     new_size: Nueva Talla
+    editing_resource: Editando %{resource}
     notice_messages:
       size_updated: La talla ha sido actualizada correctamente
       size_deleted: La talla ha sido eliminada correctamente
       size_not_updated: Se ha presentado un error, por favor intentalo otra vez
+    admin:
+      tab:
+        size: Talla
+        sizes: Tallas
+    models:
+      spree/size:
+        one: Talla
+        other: Tallas

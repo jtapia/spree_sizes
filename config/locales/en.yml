@@ -6,7 +6,16 @@ en:
     size: Size
     sizes: Sizes
     new_size: New Size
+    editing_resource: Editing %{resource}
     notice_messages:
       range_updated: The size has been updated
       size_deleted: The size has been deleted
       size_not_updated: Something went wrong, please try it again
+    admin:
+      tab:
+        size: Size
+        sizes: Sizes
+    models:
+      spree/size:
+        one: Size
+        other: Sizes
