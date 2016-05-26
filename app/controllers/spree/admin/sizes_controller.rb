@@ -22,9 +22,9 @@ module Spree
 
       def destroy
         if @size.destroy
-          flash[:success] = Spree.t('notice_messages.range_deleted')
+          flash[:success] = Spree.t('notice_messages.size_deleted')
         else
-          flash[:error] = Spree.t('notice_messages.range_not_deleted')
+          flash[:error] = Spree.t('notice_messages.size_not_deleted')
         end
 
         respond_with(@size) do |format|

@@ -2,4 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  spree:
+    size: Size
+    sizes: Sizes
+    new_size: New Size
+    notice_messages:
+      range_updated: The size has been updated
+      size_deleted: The size has been deleted
+      size_not_updated: Something went wrong, please try it again
