@@ -37,6 +37,9 @@
         <th>
           <%= Spree.t(:description) %>
         </th>
+        <th>
+          <%= Spree.t(:category) %>
+        </th>
         <th class='actions' data-hook='admin_size_index_header_actions'></th>
       </tr>
     </thead>
@@ -46,6 +49,7 @@
         <tr id='<%= spree_dom_id size %>' data-hook='admin_size_index_rows' class='<%= cycle('odd', 'even') %>'>
           <td class='name'><%= size.name %></td>
           <td class='description'><%= size.description %></td>
+          <td class='category'><%= size.category %></td>
           <td class='actions actions-2 text-right' data-hook='admin_size_index_row_actions'>
             <%= link_to_edit size, no_text: true, class: 'edit' if can?(:edit, size) %>
             <%= link_to_delete size, no_text: true if can?(:delete, size) %>
